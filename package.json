@@ -1,6 +1,6 @@
 {
   "name": "unixy",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "callsite": "0.0.2",
     "mkdirp": "~0.3.4",

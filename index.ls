@@ -30,8 +30,8 @@ cp-r = exports.cp-r = (a,b)-->
 	tree.sync null a
 	|> partition ->fs.stat.sync fs, it .is-directory!
 	|> ([dirs,files])->
-		mkdirp b
-		files |> each ->cp it, path.join b,path.basename it
+		dirs  |> each ->mkdirp.sync path.join b,path.relative a,it
+		files |> each ->cp it, path.join b,path.relative a,it
 
 rm-rf = exports.rm-rf = compose do
 	tree

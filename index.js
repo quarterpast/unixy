@@ -45,9 +45,12 @@
     return function(arg$){
       var dirs, files;
       dirs = arg$[0], files = arg$[1];
-      mkdirp(b);
+      each(function(it){
+        return mkdirp.sync(path.join(b, path.relative(a, it)));
+      })(
+      dirs);
       return each(function(it){
-        return cp(it, path.join(b, path.basename(it)));
+        return cp(it, path.join(b, path.relative(a, it)));
       })(
       files);
     }(
